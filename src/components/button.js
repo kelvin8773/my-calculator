@@ -2,21 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Button = props => {
-  const { value } = props;
+  const { name, onClick } = props;
 
   return (
-    <button type="submit" className="button">
-      {value}
+    <button
+      type="button"
+      className="button"
+      onClick={onClick}
+    >
+      {name}
     </button>
   );
 };
 
 Button.propTypes = {
-  value: PropTypes.string,
+  name: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 Button.defaultProps = {
-  value: '',
+  name: '',
+  onClick: () => { },
 };
 
 export default Button;
