@@ -19,7 +19,6 @@ font-family: 'Kelly Slab', cursive;
 body {
   font-family: 'Fira Code', monospace;
   font-size: 14px;
-  color: lightslategray;
 }
 
 h1 {
@@ -30,7 +29,9 @@ h1 {
 
 h2 {
   font-family: 'Ubuntu', sans-serif;
+  font-size: 2rem;
   font-weight: 700;
+  margin-bottom: 0.9rem;
 }
 
 h3 {
@@ -45,6 +46,11 @@ a {
 
 strong {
   font-weight: 700;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 
 .text-blink {

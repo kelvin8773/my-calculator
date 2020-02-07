@@ -6,20 +6,14 @@
 
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background: url(../Image/working-desk-2.jpg) center no-repeat fixed;
-  background-origin: content-box;
-  background-size: auto;
-
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  background:
+    linear-gradient(to right, rgba(67, 66, 66, 0.3), rgba(218, 204, 204, 0.5), rgba(67, 66, 66, 0.3)),
+    url(../Image/working-desk-2.jpg) center center no-repeat fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
