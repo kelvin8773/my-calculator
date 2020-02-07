@@ -19,9 +19,10 @@ class App extends React.Component {
   }
 
   render() {
+    const { result } = this.state;
     return (
       <div className="calculator">
-        <Display result={this.state.result} />
+        <Display result={result} />
         <ButtonPanel onClick={name => this.handleClick(name)} />
       </div>
     );
