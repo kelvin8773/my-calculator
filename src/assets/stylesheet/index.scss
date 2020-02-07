@@ -1,14 +1,17 @@
 @import './reset';
 @import './break_point';
-
 @import './color';
 @import './text';
 
+$app-width: 450px;
+$app-sm-width: 350px;
+$app-padding: 20px;
+$app-sm-padding: 15px;
+$btn-number-color: $orange;
 
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   background:
     linear-gradient(to right, rgba(67, 66, 66, 0.3), rgba(218, 204, 204, 0.5), rgba(67, 66, 66, 0.3)),
     url(../Image/working-desk-2.jpg) center center no-repeat fixed;
@@ -16,4 +19,53 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+
+.calculator {
+  -webkit-box-shadow: 1px 3px 7px -3px rgba(0, 0, 0, 0.68);
+  box-shadow: 1px 3px 7px -3px rgba(0, 0, 0, 0.68);
+  border-radius: 6px;
+  width: $app-width;
+  margin: 10% auto;
+
+  @include mobile {
+    width: $app-sm-width;
+  }
+
+  .display {
+    width: $app-width - 2 * $app-padding;
+    padding: 10px $app-padding;
+    font-size: 3rem;
+    font-weight: 400;
+    min-height: 10rem;
+    background-color: wheat;
+    opacity: 30%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-flow: row wrap;
+
+    @include mobile {
+      width: $app-sm-width - 2*$app-sm-padding;
+      padding: 10px $app-sm-padding;
+    }
+  }
+
+  .button {
+    border: 0.015px solid lightgrey;
+    width: $app-width/4;
+    padding: 20px;
+    background-color: lightsalmon;
+    font-size: 1.7rem;
+    font-weight: 600;
+
+    @include mobile {
+      width: $app-sm-width/4;
+    }
+  }
+
+  .button:hover {
+    cursor: pointer;
+  }
+
 }
