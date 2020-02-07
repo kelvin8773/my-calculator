@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Button = ({ value }) => (
+const Button = (props) => (
   <button>
-    {value}
+    {props.value}
   </button>
-)
+);
 
 export default Button;

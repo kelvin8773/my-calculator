@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Display = ({ result }) => (
-  <div id="calculator-display" class="text-center" >
+const Display = (props) => (
+  <div id="calculator-display" className="text-center" >
     <h2>
-      {result}
+      {props.result}
     </h2>
   </div>
 );
