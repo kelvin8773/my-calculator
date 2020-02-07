@@ -42,5 +42,9 @@ ButtonPanel.propTypes = {
   onClick: PropTypes.func,
 };
 
+ButtonPanel.defaultProps = {
+  onClick: () => { },
+};
+
 
 export default ButtonPanel;
