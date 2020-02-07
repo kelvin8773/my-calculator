@@ -4,10 +4,11 @@
 @import './text';
 
 $app-width: 450px;
-$app-sm-width: 350px;
+$app-sm-width: 360px;
 $app-padding: 20px;
 $app-sm-padding: 15px;
-$btn-number-color: $orange;
+$btn-color: $orange;
+$btn-light-color: $tomato;
 
 body {
   -webkit-font-smoothing: antialiased;
@@ -52,20 +53,34 @@ body {
   }
 
   .button {
-    border: 0.015px solid lightgrey;
+    border: 0px solid lightgrey;
     width: $app-width/4;
     padding: 20px;
-    background-color: lightsalmon;
     font-size: 1.7rem;
     font-weight: 600;
+    transition: all .3s;
+    outline: none;
 
     @include mobile {
       width: $app-sm-width/4;
     }
   }
 
+  .zero {
+    width: $app-width/4 * 2;
+
+    @include mobile {
+      width: $app-sm-width/4 * 2;
+    }
+  }
+
   .button:hover {
     cursor: pointer;
+  }
+
+  .button:active {
+    border-style: none;
+    background-color: $btn-light-color;
   }
 
 }

@@ -22,7 +22,7 @@ $twinkle-blue: rgba(206, 214, 224, 1.0);
 $anti-flash-white: rgba(241, 242, 246, 1.0);
 
 $primary: $tomato;
-$secondary: $bay-wharf;
+$secondary: $grisaille;
 
 $info: $french-sky-blue;
 $success: $ufo-green;
@@ -36,6 +36,11 @@ body {
 
 h1 {
   color: $info;
+}
+
+.background-white {
+  background-color: $anti-flash-white;
+  border: 1px solid $anti-flash-white;
 }
 
 .background-red {
