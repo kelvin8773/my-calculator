@@ -17,7 +17,6 @@ const Button = props => {
 
 Button.propTypes = {
   name: PropTypes.string,
-  clickHandler: PropTypes.func,
 };
 
 Button.defaultProps = {

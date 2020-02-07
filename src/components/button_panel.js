@@ -1,18 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from './button';
 
 const ButtonPanel = props => {
   const names = [
-    ["AC", "+/-", "%", "÷"],
-    ["7", "8", "9", "x"],
-    ["4", "5", "6", "+"],
-    ["1", "2", "3", "+"],
-    ["0", ".", "="],
+    ['AC', '+/-', '%', '÷'],
+    ['7', '8', '9', 'x'],
+    ['4', '5', '6', '+'],
+    ['1', '2', '3', '+'],
+    ['0', '.', '='],
   ];
 
   const { onClick } = props;
 
-  const renderButton = (name) => (
+  const renderButton = name => (
     <Button
       key={name}
       name={name}
@@ -20,7 +21,7 @@ const ButtonPanel = props => {
     />
   );
 
-  const renderRow = (row) => (
+  const renderRow = row => (
     <div key={row} className="panel-row">
       {
         row.map(name => (
@@ -35,7 +36,11 @@ const ButtonPanel = props => {
       {names.map(row => (renderRow(row)))}
     </div>
   );
-}
+};
+
+ButtonPanel.propTypes = {
+  onClick: PropTypes.func,
+};
 
 
 export default ButtonPanel;

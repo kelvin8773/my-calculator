@@ -6,7 +6,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      result: "",
+      result: '',
     };
   }
 
@@ -14,7 +14,7 @@ class App extends React.Component {
     const result = this.state.result.slice();
 
     this.setState({
-      result: result.concat(name)
+      result: result.concat(name),
     });
   }
 
@@ -22,7 +22,7 @@ class App extends React.Component {
     return (
       <div className="calculator">
         <Display result={this.state.result} />
-        <ButtonPanel onClick={(name) => this.handleClick(name)} />
+        <ButtonPanel onClick={name => this.handleClick(name)} />
       </div>
     );
   }
