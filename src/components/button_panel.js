@@ -14,9 +14,9 @@ const ButtonPanel = props => {
   const { onClick } = props;
 
   const renderButton = name => {
-    const wide = name === '0' ? true : false;
+    const wide = name === '0';
     const sideButtons = ['÷', 'x', '-', '+', '='];
-    const white = sideButtons.includes(name) ? false : true;
+    const white = !sideButtons.includes(name);
 
     return (
       <Button
@@ -27,7 +27,7 @@ const ButtonPanel = props => {
         onClick={() => onClick(name)}
       />
     );
-  }
+  };
 
 
   const renderRow = row => (
