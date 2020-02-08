@@ -52,7 +52,7 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
 
     @include mobile {
       width: $app-sm-width - 2*$display-sm-padding;
@@ -62,10 +62,10 @@ body {
   }
 
   .button {
-    border: 0.015px solid lightgrey;
+    border: 0.015px solid $peace;
     width: $app-width/4;
     height: $app-width/7;
-    font-size: 1.7rem;
+    font-size: 3rem;
     font-weight: 600;
     transition: all .3s;
     outline: none;
