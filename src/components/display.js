@@ -5,12 +5,10 @@ const Display = props => {
   const { result } = props;
   return (
     <div id="display" className="display">
-      <div>
-        <code>
-          {result}
-          <span className="text-blink background-orange"> </span>
-        </code>
-      </div>
+      <code>
+        {result}
+        <span className="text-blink background-orange"> </span>
+      </code>
     </div>
   );
 };
