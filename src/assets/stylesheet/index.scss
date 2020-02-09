@@ -44,15 +44,25 @@ body {
   .display {
     width: $app-width - 2 * $display-padding;
     padding: 10px $display-padding;
-    font-size: 3rem;
-    font-weight: 700;
     min-height: $display-height;
     background-color: gray;
-    opacity: 40%;
+    opacity: 60%;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
     flex-flow: column wrap;
+
+    .main {
+      font-size: 3rem;
+      font-weight: 700;
+      color: lightyellow;
+    }
+
+    .secondary {
+      font-size: 2rem;
+      font-weight: 400;
+      color: lightsteelblue;
+    }
 
     @include mobile {
       width: $app-sm-width - 2*$display-sm-padding;

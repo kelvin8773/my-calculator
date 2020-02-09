@@ -2,27 +2,36 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Display = props => {
-  const { formula, result } = props;
+  const { numOne, numTwo, operation, result } = props;
+  const toCommas = (x) => {
+    if (!x) return;
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
   return (
     <div id="display" className="display">
-      <code className="formula">
-        {formula}
+      <h2 className="main">
+        {[toCommas(numOne), operation, toCommas(numTwo)].join(' ')}
         <span className="text-blink background-orange"></span>
-      </code>
-      <div className="result">
-        = {result}
-      </div>
+      </h2>
+      <h2 className="secondary">
+        ={toCommas(result)}
+      </h2>
     </div>
   );
 };
 
 Display.propTypes = {
-  formula: PropTypes.string,
+  numOne: PropTypes.string,
+  numTwo: PropTypes.string,
+  operation: PropTypes.string,
   result: PropTypes.string,
 };
 
 Display.defaultProps = {
-  formula: '',
+  numOne: '',
+  numTwo: '',
+  operation: '',
   result: '0',
 };
 
