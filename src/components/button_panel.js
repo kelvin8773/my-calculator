@@ -13,13 +13,22 @@ const ButtonPanel = props => {
 
   const { onClick } = props;
 
-  const renderButton = name => (
-    <Button
-      key={name}
-      name={name}
-      onClick={() => onClick(name)}
-    />
-  );
+  const renderButton = name => {
+    const wide = name === '0';
+    const sideButtons = ['÷', 'x', '-', '+', '='];
+    const white = !sideButtons.includes(name);
+
+    return (
+      <Button
+        key={name}
+        name={name}
+        wide={wide}
+        color={white}
+        onClick={() => onClick(name)}
+      />
+    );
+  };
+
 
   const renderRow = row => (
     <div key={row} className="panel-row">

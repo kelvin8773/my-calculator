@@ -3,10 +3,14 @@
 @import './color';
 @import './text';
 
-$app-width: 450px;
-$app-sm-width: 360px;
-$app-padding: 20px;
-$app-sm-padding: 15px;
+$app-width: 700px;
+$app-sm-width: 350px;
+
+$display-height: 100px;
+$display-padding: 20px;
+$display-sm-padding: 15px;
+
+
 $btn-color: $coral;
 $btn-light-color: $tomato;
 
@@ -27,35 +31,40 @@ body {
   box-shadow: 1px 3px 7px -3px rgba(0, 0, 0, 0.68);
   border-radius: 6px;
   width: $app-width;
-  margin: 11% auto;
+  margin: 6% auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
 
   @include mobile {
     width: $app-sm-width;
   }
 
   .display {
-    width: $app-width - 2 * $app-padding;
-    padding: 10px $app-padding;
+    width: $app-width - 2 * $display-padding;
+    padding: 10px $display-padding;
     font-size: 3rem;
-    font-weight: 400;
-    min-height: 10rem;
-    background-color: wheat;
-    opacity: 30%;
+    font-weight: 700;
+    min-height: $display-height;
+    background-color: gray;
+    opacity: 40%;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
     flex-flow: row wrap;
 
     @include mobile {
-      width: $app-sm-width - 2*$app-sm-padding;
-      padding: 10px $app-sm-padding;
+      width: $app-sm-width - 2*$display-sm-padding;
+      padding: 10px $display-sm-padding;
+      font-size: 2rem;
     }
   }
 
   .button {
-    border: 0px solid lightgrey;
+    border: 0.015px solid lightgrey;
     width: $app-width/4;
-    padding: 20px;
+    height: $app-width/7;
     font-size: 1.7rem;
     font-weight: 600;
     transition: all .3s;
@@ -63,6 +72,8 @@ body {
 
     @include mobile {
       width: $app-sm-width/4;
+      height: $app-sm-width/7;
+      font-size: 1.3rem;
     }
   }
 

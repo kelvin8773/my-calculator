@@ -11,8 +11,7 @@ class App extends React.Component {
   }
 
   handleClick(name) {
-    let { result } = this.state;
-    result = result.slice();
+    const { result } = this.state;
     this.setState({
       result: result.concat(name),
     });
