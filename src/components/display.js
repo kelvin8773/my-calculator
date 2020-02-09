@@ -4,8 +4,9 @@ import Num from '../utilities/num';
 
 const Display = props => {
   let {
-    numOne, numTwo, operation, result,
+    numOne, numTwo, result,
   } = props;
+  const { operation } = props;
 
   numOne = numOne ? Num.toCommas(numOne) : numOne;
   numTwo = numTwo ? Num.toCommas(numTwo) : numTwo;
