@@ -1,21 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Num from '../utilities/num';
 
 const Display = props => {
-  const { numOne, numTwo, operation, result } = props;
-  const toCommas = (x) => {
-    if (!x) return;
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
+  let {
+    numOne, numTwo, operation, result,
+  } = props;
+
+  numOne = numOne ? Num.toCommas(numOne) : numOne;
+  numTwo = numTwo ? Num.toCommas(numTwo) : numTwo;
+  result = result ? Num.toCommas(result) : result;
+
 
   return (
     <div id="display" className="display">
       <h2 className="main">
-        {[toCommas(numOne), operation, toCommas(numTwo)].join(' ')}
-        <span className="text-blink background-orange"></span>
+        {[numOne, operation, numTwo].join(' ')}
+        <span className="text-blink background-orange" />
       </h2>
       <h2 className="secondary">
-        ={toCommas(result)}
+        =
+        {result}
       </h2>
     </div>
   );
