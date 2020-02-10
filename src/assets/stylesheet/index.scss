@@ -42,7 +42,6 @@ body {
     padding: 10px $display-padding;
     min-height: $display-height;
     background-color: gray;
-    // opacity: 90%;
     display: flex;
     flex-flow: column wrap;
     justify-content: flex-end;
@@ -79,7 +78,7 @@ body {
 
     .button:hover {
       cursor: pointer;
-      opacity: 50%;
+      background-color: moccasin;
     }
 
     .button:active {
