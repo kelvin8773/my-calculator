@@ -2,29 +2,39 @@ import React from 'react';
 import Display from './display';
 import ButtonPanel from './button_panel';
 import Calculate from '../logic/calculate';
+import { OPERATIONS } from '../utilities/constants';
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       numOne: null,
-      operation: null,
       numTwo: null,
-      result: null,
+      operation: null,
+      total: null,
+      finish: false,
     };
   }
 
-  handleClick(button) {
-    try {
-      this.setState(prevState => Calculate(prevState, button));
-    } catch (e) {
-      console.log(e);
+  handleClick(buttonName) {
+    const { finish, total } = this.state;
+
+    if (!finish) {
+      this.setState(prevState => Calculate(prevState, buttonName));
+    } else {
+      this.setState({
+        numOne: total,
+        numTwo: null,
+        operation: OPERATIONS.includes(buttonName) ? buttonName : null,
+        finish: false,
+      })
     }
+
   }
 
   render() {
     const {
-      numOne, operation, numTwo, result,
+      numOne, operation, numTwo, total, finish
     } = this.state;
     return (
       <div className="calculator">
@@ -32,9 +42,10 @@ class App extends React.Component {
           numOne={numOne}
           numTwo={numTwo}
           operation={operation}
-          result={result}
+          total={total}
+          finish={finish}
         />
-        <ButtonPanel onClick={name => this.handleClick(name)} />
+        <ButtonPanel clickHandler={buttonName => this.handleClick(buttonName)} />
       </div>
     );
   }

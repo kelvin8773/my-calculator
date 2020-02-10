@@ -1,30 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from './button';
+import { BUTTON_NAMES } from '../utilities/constants';
 
 const ButtonPanel = props => {
-  const names = [
-    ['AC', '+/-', '%', '÷'],
-    ['7', '8', '9', 'x'],
-    ['4', '5', '6', '+'],
-    ['1', '2', '3', '-'],
-    ['0', '.', '='],
-  ];
+  const { clickHandler } = props;
 
-  const { onClick } = props;
-
-  const renderButton = name => {
-    const wide = name === '0' ? 'button zero' : 'button';
+  const renderButton = buttonName => {
+    const wide = buttonName === '0' ? 'button zero' : 'button';
     const sideButtons = ['÷', 'x', '+', '-', '='];
-    const color = sideButtons.includes(name) ? 'background-orange' : 'background-white';
+    const color = sideButtons.includes(buttonName) ? 'background-orange' : 'background-white';
 
     return (
       <Button
-        key={name}
-        name={name}
+        key={buttonName}
+        buttonName={buttonName}
         wide={wide}
         color={color}
-        onClick={() => onClick(name)}
+        clickHandler={() => clickHandler(buttonName)}
       />
     );
   };
@@ -33,8 +26,8 @@ const ButtonPanel = props => {
   const renderRow = row => (
     <div key={row} className="panel-row">
       {
-        row.map(name => (
-          renderButton(name)
+        row.map(buttonName => (
+          renderButton(buttonName)
         ))
       }
     </div>
@@ -42,17 +35,17 @@ const ButtonPanel = props => {
 
   return (
     <div className="text-center button-panel">
-      {names.map(row => (renderRow(row)))}
+      {BUTTON_NAMES.map(row => (renderRow(row)))}
     </div>
   );
 };
 
 ButtonPanel.propTypes = {
-  onClick: PropTypes.func,
+  clickHandler: PropTypes.func,
 };
 
 ButtonPanel.defaultProps = {
-  onClick: () => { },
+  clickHandler: () => { },
 };
 
 

@@ -3,32 +3,32 @@ import PropTypes from 'prop-types';
 
 const Button = props => {
   const {
-    name, wide, color, onClick,
+    buttonName, wide, color, clickHandler,
   } = props;
 
   return (
     <button
       type="button"
       className={`${wide} ${color}`}
-      onClick={onClick}
+      onClick={clickHandler}
     >
-      {name}
+      {buttonName}
     </button>
   );
 };
 
 Button.propTypes = {
-  name: PropTypes.string,
+  buttonName: PropTypes.string,
   wide: PropTypes.string,
   color: PropTypes.string,
-  onClick: PropTypes.func,
+  clickHandler: PropTypes.func,
 };
 
 Button.defaultProps = {
-  name: '',
+  buttonName: '',
   wide: 'button',
   color: 'background-orange',
-  onClick: () => { },
+  clickHandler: () => { },
 };
 
 export default Button;

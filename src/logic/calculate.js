@@ -6,38 +6,27 @@ import {
   OTHER_BUTTON
 } from '../utilities/constants';
 
-const Calculate = (data, button) => {
-
+const Calculate = (data, buttonName) => {
   let {
-    numOne, operation, numTwo, result,
+    numOne, operation, numTwo, total, finish
   } = data;
 
-  const updateDigits = (number, button) => {
-    let updated = number;
-    if (button === '.') {
-      if (!number.includes('.') && !number.includes('%')) updated += button;
-    } else {
-      if (!number.includes('%')) updated += button;
-    }
-    return updated;
-  }
-
   try {
-    if (DIGITS.includes(button)) {
+    if (DIGITS.includes(buttonName)) {
       if (numTwo || operation) {
-        numTwo = numTwo ? updateDigits(numTwo, button) : button;
+        numTwo = numTwo ? Num.updateDigits(numTwo, buttonName) : buttonName;
       } else {
-        numOne = numOne ? updateDigits(numOne, button) : button;
+        numOne = numOne ? Num.updateDigits(numOne, buttonName) : buttonName;
       }
-    } else if (OPERATIONS.includes(button)) {
-      if (numOne || numTwo) operation = button;
-    } else if (OTHER_BUTTON.includes(button)) {
-      switch (button) {
+    } else if (OPERATIONS.includes(buttonName)) {
+      if (numOne || numTwo) operation = buttonName;
+    } else if (OTHER_BUTTON.includes(buttonName)) {
+      switch (buttonName) {
         case 'AC':
           numOne = null;
           numTwo = null;
           operation = null;
-          result = null;
+          total = null;
           break;
         case '+/-':
           if (numTwo) {
@@ -47,7 +36,6 @@ const Calculate = (data, button) => {
           }
           break;
         case '%':
-
           if (numTwo) {
             numTwo = Num.updatePercent(numTwo);
           } else {
@@ -55,27 +43,28 @@ const Calculate = (data, button) => {
           }
           break;
         case '=':
+          finish = true;
+          break;
         default:
       }
 
     };
 
     if (!numTwo) {
-      result = numOne;
+      total = numOne;
     } else {
-      result = Operate(numOne, numTwo, operation);
+      total = Operate(numOne, numTwo, operation);
     }
-
   } catch {
-    console.log('Something Wrong!');
-    result = "Wrong Input, try Again!"
+    total = " ~Invalid Input~ "
   }
 
   return {
     numOne,
     numTwo,
     operation,
-    result,
+    total,
+    finish,
   };
 };
 
