@@ -1,27 +1,35 @@
 import React from 'react';
 import Display from './display';
 import ButtonPanel from './button_panel';
+import Calculate from '../logic/calculate';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
-      result: '',
+      numOne: null,
+      operation: null,
+      numTwo: null,
+      result: null,
     };
   }
 
-  handleClick(name) {
-    const { result } = this.state;
-    this.setState({
-      result: result.concat(name),
-    });
+  handleClick(button) {
+    this.setState(prevState => Calculate(prevState, button));
   }
 
   render() {
-    const { result } = this.state;
+    const {
+      numOne, operation, numTwo, result,
+    } = this.state;
     return (
       <div className="calculator">
-        <Display result={result} />
+        <Display
+          numOne={numOne}
+          numTwo={numTwo}
+          operation={operation}
+          result={result}
+        />
         <ButtonPanel onClick={name => this.handleClick(name)} />
       </div>
     );

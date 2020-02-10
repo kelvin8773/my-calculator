@@ -7,23 +7,23 @@ const ButtonPanel = props => {
     ['AC', '+/-', '%', '÷'],
     ['7', '8', '9', 'x'],
     ['4', '5', '6', '+'],
-    ['1', '2', '3', '+'],
+    ['1', '2', '3', '-'],
     ['0', '.', '='],
   ];
 
   const { onClick } = props;
 
   const renderButton = name => {
-    const wide = name === '0';
-    const sideButtons = ['÷', 'x', '-', '+', '='];
-    const white = !sideButtons.includes(name);
+    const wide = name === '0' ? 'button zero' : 'button';
+    const sideButtons = ['÷', 'x', '+', '-', '='];
+    const color = sideButtons.includes(name) ? 'background-orange' : 'background-white';
 
     return (
       <Button
         key={name}
         name={name}
         wide={wide}
-        color={white}
+        color={color}
         onClick={() => onClick(name)}
       />
     );
