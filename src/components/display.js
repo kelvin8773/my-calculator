@@ -3,26 +3,37 @@ import PropTypes from 'prop-types';
 import Num from '../utilities/num';
 
 const Display = props => {
-  let {
-    numOne, numTwo, total, finish
-  } = props;
-  const { operation } = props;
+  const { next, finish, operation } = props;
+  let { total } = props;
+  let [numOne, numTwo] = next ? next.split(' ') : [];
 
-  numOne = numOne ? Num.toCommas(numOne) : numOne;
-  numTwo = numTwo ? Num.toCommas(numTwo) : numTwo;
-  total = total ? Num.toCommas(total) : total;
+  numOne = numOne ? Num.toCommas(numOne) : '';
+  numTwo = numTwo ? Num.toCommas(numTwo) : '';
+  total = total ? Num.toCommas(total) : '';
 
   const formula = [numOne, operation, numTwo].join(' ');
   const blinkCursor = <span className="text-blink background-orange" />;
-  let firstLine, secondLine;
+  let firstLine;
+  let secondLine;
 
   if (!finish) {
-    firstLine = <h2 className="main"> {formula} {blinkCursor} </h2>;
-    secondLine = <h2 className="secondary"> = {total} </h2>;
+    firstLine = (
+      <h2 className="main">
+        {formula}
+        {blinkCursor}
+      </h2>
+    );
+    secondLine = (
+      <h2 className="secondary">{`= ${total}`}</h2>
+    );
   } else {
-    firstLine = <h2 className="secondary"> {formula} </h2>;
-    secondLine = <h2 className="main"> = {total} </h2>;
-  };
+    firstLine = (
+      <h2 className="secondary">{formula}</h2>
+    );
+    secondLine = (
+      <h2 className="main">{`= ${total}`}</h2>
+    );
+  }
 
 
   return (
@@ -31,21 +42,19 @@ const Display = props => {
       {secondLine}
     </div>
   );
-
-
 };
 
 Display.propTypes = {
-  numOne: PropTypes.string,
-  numTwo: PropTypes.string,
+  next: PropTypes.string,
+  // numTwo: PropTypes.string,
   operation: PropTypes.string,
   total: PropTypes.string,
   finish: PropTypes.bool,
 };
 
 Display.defaultProps = {
-  numOne: '',
-  numTwo: '',
+  next: '',
+  // numTwo: '',
   operation: '',
   total: '0',
   finish: false,

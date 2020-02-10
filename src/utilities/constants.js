@@ -15,5 +15,5 @@ export {
   DIGITS,
   OPERATIONS,
   OTHER_BUTTON,
-  BUTTON_NAMES
-}
+  BUTTON_NAMES,
+};

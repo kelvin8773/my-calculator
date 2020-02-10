@@ -9,11 +9,11 @@ const Operate = (numOne, numTwo, operation) => {
 
   const removePercent = x => parseFloat(x.slice(0, -1)) / 100;
 
-  if (numOne[numOne.length - 1] === '%') numOne = removePercent(numOne);
-  if (numTwo[numTwo.length - 1] === '%') numTwo = removePercent(numTwo);
+  const numberOne = numOne.slice(-1) === '%' ? removePercent(numOne) : numOne;
+  const numberTwo = numTwo.slice(-1) === '%' ? removePercent(numTwo) : numTwo;
 
-  const one = new Big(numOne);
-  const two = new Big(numTwo);
+  const one = new Big(numberOne);
+  const two = new Big(numberTwo);
 
   let result;
   switch (operation) {

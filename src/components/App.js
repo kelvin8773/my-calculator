@@ -8,8 +8,6 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      numOne: null,
-      numTwo: null,
       next: null,
       operation: null,
       total: null,
@@ -24,24 +22,21 @@ class App extends React.Component {
       this.setState(prevState => Calculate(prevState, buttonName));
     } else {
       this.setState({
-        numOne: total,
-        numTwo: null,
+        next: total,
         operation: OPERATIONS.includes(buttonName) ? buttonName : null,
         finish: false,
-      })
+      });
     }
-
   }
 
   render() {
     const {
-      numOne, operation, numTwo, total, finish
+      next, operation, total, finish,
     } = this.state;
     return (
       <div className="calculator">
         <Display
-          numOne={numOne}
-          numTwo={numTwo}
+          next={next}
           operation={operation}
           total={total}
           finish={finish}

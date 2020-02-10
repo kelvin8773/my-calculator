@@ -10,11 +10,11 @@ const Num = (() => {
       if (!number.includes('%')) {
         updated += button;
       } else {
-        updated = updated.slice(0, -1) + button + '%';
+        updated = `${updated.slice(0, -1) + button}%`;
       }
-    };
+    }
     return updated;
-  }
+  };
 
   return {
     updateSign,

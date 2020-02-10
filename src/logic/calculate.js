@@ -3,13 +3,14 @@ import Num from '../utilities/num';
 import {
   DIGITS,
   OPERATIONS,
-  OTHER_BUTTON
+  OTHER_BUTTON,
 } from '../utilities/constants';
 
 const Calculate = (data, buttonName) => {
   let {
-    numOne, operation, numTwo, total, finish
+    next, operation, total, finish,
   } = data;
+  let [numOne, numTwo] = next ? next.split(' ') : [];
 
   try {
     if (DIGITS.includes(buttonName)) {
@@ -47,22 +48,21 @@ const Calculate = (data, buttonName) => {
           break;
         default:
       }
-
-    };
+    }
 
     if (!numTwo) {
       total = numOne;
     } else {
       total = Operate(numOne, numTwo, operation);
     }
-  } catch {
-    total = " ~Invalid Input~ "
+  } catch (e) {
+    total = ' ~Invalid Input~ ';
   }
 
+  next = [numOne, numTwo].join(' ');
   return {
-    numOne,
-    numTwo,
     operation,
+    next,
     total,
     finish,
   };
