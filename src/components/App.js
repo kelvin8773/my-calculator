@@ -10,6 +10,7 @@ class App extends React.Component {
     this.state = {
       numOne: null,
       numTwo: null,
+      next: null,
       operation: null,
       total: null,
       finish: false,
