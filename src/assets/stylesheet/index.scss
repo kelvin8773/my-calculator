@@ -4,12 +4,8 @@
 @import './text';
 
 $app-width: 700px;
-$app-sm-width: 350px;
-
 $display-height: 100px;
 $display-padding: 20px;
-$display-sm-padding: 25px;
-
 
 $btn-color: $coral;
 $btn-light-color: $tomato;
@@ -63,7 +59,7 @@ body {
   .button-panel {
 
     .button {
-      border: 0.015px solid $peace;
+      border: 0.02px solid $peace;
       width: $app-width/4;
       height: $app-width/7;
       font-size: 3rem;
@@ -87,10 +83,13 @@ body {
     }
   }
 
-
 }
 
 @include mobile {
+  body {
+    background: none;
+  }
+
   .calculator {
     -webkit-box-shadow: none;
     box-shadow: none;
