@@ -1,13 +1,19 @@
 import Big from 'big-js';
 
 const Operate = (numOne, numTwo, operation) => {
+  // refer http://mikemcl.github.io/big.js/#dp fro more info
   Big.DP = 10;
   Big.RM = 1;
   Big.NE = -5;
   Big.PE = 10;
 
-  const one = new Big(numOne);
-  const two = new Big(numTwo);
+  const removePercent = x => parseFloat(x.slice(0, -1)) / 100;
+
+  const numberOne = numOne.slice(-1) === '%' ? removePercent(numOne) : numOne;
+  const numberTwo = numTwo.slice(-1) === '%' ? removePercent(numTwo) : numTwo;
+
+  const one = new Big(numberOne);
+  const two = new Big(numberTwo);
 
   let result;
   switch (operation) {

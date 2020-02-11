@@ -1,72 +1,70 @@
 import Operate from './operate';
 import Num from '../utilities/num';
+import {
+  DIGITS,
+  OPERATIONS,
+  OTHER_BUTTON,
+} from '../utilities/constants';
 
-
-const Calculate = (data, button) => {
-  const numberDigits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
-  const operations = ['÷', 'x', '+', '-'];
-  const otherButtons = ['AC', '+/-', '%', '='];
-
+const Calculate = (data, buttonName) => {
   let {
-    numOne, operation, numTwo, result,
+    next, operation, total, finish,
   } = data;
+  let [numOne, numTwo] = next ? next.split(' ') : [];
 
-  if (numberDigits.includes(button)) {
-    if (button === '.') {
-      if ((numTwo && !numTwo.includes('.'))
-        || (numOne && !numOne.includes('.'))) {
-        if (numTwo || operation) {
-          numTwo = numTwo ? numTwo + button : button;
-        } else {
-          numOne = numOne ? numOne + button : button;
-        }
+  try {
+    if (DIGITS.includes(buttonName)) {
+      if (numTwo || operation) {
+        numTwo = numTwo ? Num.updateDigits(numTwo, buttonName) : buttonName;
+      } else {
+        numOne = numOne ? Num.updateDigits(numOne, buttonName) : buttonName;
       }
-    } else if (numTwo || operation) {
-      numTwo = numTwo ? numTwo + button : button;
+    } else if (OPERATIONS.includes(buttonName)) {
+      if (numOne || numTwo) operation = buttonName;
+    } else if (OTHER_BUTTON.includes(buttonName)) {
+      switch (buttonName) {
+        case 'AC':
+          numOne = null;
+          numTwo = null;
+          operation = null;
+          total = null;
+          break;
+        case '+/-':
+          if (numTwo) {
+            numTwo = Num.updateSign(numTwo);
+          } else {
+            numOne = Num.updateSign(numOne);
+          }
+          break;
+        case '%':
+          if (numTwo) {
+            numTwo = Num.updatePercent(numTwo);
+          } else {
+            numOne = Num.updatePercent(numOne);
+          }
+          break;
+        case '=':
+          finish = true;
+          break;
+        default:
+      }
+    }
+
+    if (!numTwo) {
+      total = numOne;
     } else {
-      numOne = numOne ? numOne + button : button;
+      total = Operate(numOne, numTwo, operation);
     }
-  } else if (operations.includes(button)) {
-    if (numOne || numTwo) operation = button;
-  } else if (otherButtons.includes(button)) {
-    switch (button) {
-      case 'AC':
-        numOne = null;
-        numTwo = null;
-        operation = null;
-        result = null;
-        break;
-      case '+/-':
-        if (numTwo) {
-          numTwo = Num.updateSign(numTwo);
-        } else {
-          numOne = Num.updateSign(numOne);
-        }
-        break;
-      case '%':
-        if (numTwo) {
-          numTwo = Num.updatePercent(numTwo);
-        } else {
-          numOne = Num.updatePercent(numOne);
-        }
-        break;
-      case '=':
-      default:
-    }
+  } catch (e) {
+    total = ' ~Invalid Input~ ';
   }
 
-
-  if (!numTwo) {
-    result = numOne;
-  } else {
-    result = Operate(numOne, numTwo, operation);
-  }
-
+  next = [numOne, numTwo].join(' ');
   return {
-    numOne,
-    numTwo,
     operation,
-    result,
+    next,
+    total,
+    finish,
   };
 };
 

@@ -4,12 +4,8 @@
 @import './text';
 
 $app-width: 700px;
-$app-sm-width: 350px;
-
 $display-height: 100px;
 $display-padding: 20px;
-$display-sm-padding: 15px;
-
 
 $btn-color: $coral;
 $btn-light-color: $tomato;
@@ -19,7 +15,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background:
     linear-gradient(to right, rgba(67, 66, 66, 0.3), rgba(218, 204, 204, 0.5), rgba(67, 66, 66, 0.3)),
-    url(../Image/working-desk-2.jpg) center center no-repeat fixed;
+    url(../Image/working-desk.jpg) center center no-repeat fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -37,20 +33,15 @@ body {
   justify-content: flex-start;
   align-items: center;
 
-  @include mobile {
-    width: $app-sm-width;
-  }
-
   .display {
     width: $app-width - 2 * $display-padding;
     padding: 10px $display-padding;
     min-height: $display-height;
     background-color: gray;
-    opacity: 60%;
     display: flex;
+    flex-flow: column wrap;
     justify-content: flex-end;
     align-items: flex-end;
-    flex-flow: column wrap;
 
     .main {
       font-size: 3rem;
@@ -63,46 +54,84 @@ body {
       font-weight: 400;
       color: lightsteelblue;
     }
+  }
 
-    @include mobile {
-      width: $app-sm-width - 2*$display-sm-padding;
-      padding: 10px $display-sm-padding;
-      font-size: 2rem;
+  .button-panel {
+
+    .button {
+      border: 0.02px solid $peace;
+      width: $app-width/4;
+      height: $app-width/7;
+      font-size: 3rem;
+      font-weight: 600;
+      transition: all .3s;
+      outline: none;
+    }
+
+    .zero {
+      width: $app-width/4 * 2;
+    }
+
+    .button:hover {
+      cursor: pointer;
+      background-color: moccasin;
+    }
+
+    .button:active {
+      border-style: none;
+      background-color: $btn-light-color;
     }
   }
 
-  .button {
-    border: 0.015px solid $peace;
-    width: $app-width/4;
-    height: $app-width/7;
-    font-size: 3rem;
-    font-weight: 600;
-    transition: all .3s;
-    outline: none;
+}
 
-    @include mobile {
-      width: $app-sm-width/4;
-      height: $app-sm-width/7;
-      font-size: 1.3rem;
+@include mobile {
+  body {
+    background: none;
+  }
+
+  .calculator {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    margin: auto;
+    width: 100vw;
+    height: 100vh;
+
+    .display {
+      margin: 0 auto;
+      width: 100vw;
+      height: 35vh;
+      padding: 0;
+
+      .main {
+        font-size: 3rem;
+        margin-right: 25px;
+        margin-bottom: 10px;
+      }
+
+      .secondary {
+        font-size: 2rem;
+        margin-right: 25px;
+        margin-bottom: 10px;
+      }
     }
-  }
 
-  .zero {
-    width: $app-width/4 * 2;
+    .button-panel {
+      width: 100vw;
+      height: 65vh;
 
-    @include mobile {
-      width: $app-sm-width/4 * 2;
+      .button {
+        border: 0px;
+        width: 25vw;
+        height: 13vh;
+        font-size: 2rem;
+      }
+
+      .zero {
+        width: 50vw;
+      }
     }
-  }
 
-  .button:hover {
-    cursor: pointer;
-    opacity: 50%;
-  }
 
-  .button:active {
-    border-style: none;
-    background-color: $btn-light-color;
   }
-
 }
