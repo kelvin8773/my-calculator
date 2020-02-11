@@ -1,0 +1,137 @@
+@import './reset';
+@import './break_point';
+@import './color';
+@import './text';
+
+$app-width: 700px;
+$display-height: 100px;
+$display-padding: 20px;
+
+$btn-color: $coral;
+$btn-light-color: $tomato;
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background:
+    linear-gradient(to right, rgba(67, 66, 66, 0.3), rgba(218, 204, 204, 0.5), rgba(67, 66, 66, 0.3)),
+    url(../Image/working-desk.jpg) center center no-repeat fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.calculator {
+  -webkit-box-shadow: 1px 3px 7px -3px rgba(0, 0, 0, 0.68);
+  box-shadow: 1px 3px 7px -3px rgba(0, 0, 0, 0.68);
+  border-radius: 6px;
+  width: $app-width;
+  margin: 6% auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  .display {
+    width: $app-width - 2 * $display-padding;
+    padding: 10px $display-padding;
+    min-height: $display-height;
+    background-color: gray;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    .main {
+      font-size: 3rem;
+      font-weight: 700;
+      color: lightyellow;
+    }
+
+    .secondary {
+      font-size: 2rem;
+      font-weight: 400;
+      color: lightsteelblue;
+    }
+  }
+
+  .button-panel {
+
+    .button {
+      border: 0.02px solid $peace;
+      width: $app-width/4;
+      height: $app-width/7;
+      font-size: 3rem;
+      font-weight: 600;
+      transition: all .3s;
+      outline: none;
+    }
+
+    .zero {
+      width: $app-width/4 * 2;
+    }
+
+    .button:hover {
+      cursor: pointer;
+      background-color: moccasin;
+    }
+
+    .button:active {
+      border-style: none;
+      background-color: $btn-light-color;
+    }
+  }
+
+}
+
+@include mobile {
+  body {
+    background: none;
+  }
+
+  .calculator {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    margin: auto;
+    width: 100vw;
+    height: 100vh;
+
+    .display {
+      margin: 0 auto;
+      width: 100vw;
+      height: 35vh;
+      padding: 0;
+
+      .main {
+        font-size: 3rem;
+        margin-right: 25px;
+        margin-bottom: 10px;
+      }
+
+      .secondary {
+        font-size: 2rem;
+        margin-right: 25px;
+        margin-bottom: 10px;
+      }
+    }
+
+    .button-panel {
+      width: 100vw;
+      height: 65vh;
+
+      .button {
+        border: 0px;
+        width: 25vw;
+        height: 13vh;
+        font-size: 2rem;
+      }
+
+      .zero {
+        width: 50vw;
+      }
+    }
+
+
+  }
+}

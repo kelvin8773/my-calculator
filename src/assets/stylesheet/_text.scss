@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,700,700i,900,900i|Ubuntu:400,400i,500,700&display=swap');
+
+@import url('https://fonts.googleapis.com/css?family=Fira+Code:300,400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Viga&display=swap');
+
+@import url('https://fonts.googleapis.com/css?family=Kelly+Slab|Lobster|Roboto+Slab&display=swap');
+
+/* **** Google Font family reference ****
+font-family: 'Ubuntu', sans-serif;
+font-family: 'Fira Sans', sans-serif;
+font-family: 'Fira Code', monospace;
+font-family: 'Viga', sans-serif;
+font-family: 'Roboto Slab', serif;
+font-family: 'Lobster', cursive;
+font-family: 'Kelly Slab', cursive;
+
+*/
+
+body {
+  font-family: 'Fira Code', monospace;
+  font-size: 14px;
+}
+
+h1 {
+  font-family: 'Viga', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+h3 {
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+a {
+  text-decoration: none;
+}
+
+strong {
+  font-weight: 700;
+}
+
+code {
+  font-family: 'Fira Code', monospace;
+}
+
+.text-blink {
+  -webkit-animation: blink 1s step-end infinite;
+  animation: blink 1s step-end infinite;
+}
+
+@-webkit-keyframes blink {
+  0% {
+    opacity: 1.0;
+  }
+
+  50% {
+    opacity: 0.0;
+  }
+
+  100% {
+    opacity: 1.0;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1.0;
+  }
+
+  50% {
+    opacity: 0.0;
+  }
+
+  100% {
+    opacity: 1.0;
+  }
+}
+
+
+.text-center {
+  text-align: center;
+}
+
+.text-indent {
+  text-indent: 4rem;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.font-weight-light {
+  font-weight: 300;
+}
+
+.font-weight-bold {
+  font-weight: 700;
+}
+
+.font-italic {
+  font-style: italic;
+}
