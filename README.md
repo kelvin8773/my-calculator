@@ -12,28 +12,28 @@
   </a>
 </p>
 
-> An small calculator app for learning React from the beginning.
-
 [![calculator-screenShoot](./docs/calculator-showcase.jpg)](https://calculator.kelvinliang.cn/)
+
+> An small calculator app to learn React from the beginning.
+
+### ✨ [Demo Link](https://calculator.kelvinliang.cn/)
 
 ## Main Features
 * Basic mathematical calculations;
 * Support dynamically change (+/- sign/ % percentages);
 * Show formula & result in 2 lines;
 * Support continue calculation (result keep roll to next calculation);
-* Support all mobile devices (Table/Phone)
+* fit to all size screen
 
 ## Know issue and planned features
-* Not well support Big Number yet (Visually, both formula or result can't be too long);
+* Does not yet support large numbers (Visually, neither formulas nor results can be too long);
 * History of calculations;
 * keyboard input support for desktop users;
-* Scientific Calculation (Maybe - :P);
-
-### ✨ [Demo](https://calculator.kelvinliang.cn/)
+* Adding Test Units;
 
 ### Tech Stacks
-* HTML/CSS/SASS
-* JavaScript
+* SASS
+* ES6
 * ReactJS
 
 I use [Create-React-App](https://github.com/facebook/create-react-app) to generate a react app template as the starting point of this project. 
@@ -70,8 +70,13 @@ yarn build
 
 👤 **Kelvin Liang**
 
-* Twitter: [@Kelvin9877](https://twitter.com/Kelvin9877)
-* LinkedIn: [@Kelvin9877](https://linkedin.com/in/Kelvin9877)
+* Website: https://medium.com/@Kelvin9877
+* Twitter: [@kelvin9877](https://twitter.com/kelvin9877)
+* Github: [@kelvin8773](https://github.com/kelvin8773)
+* LinkedIn: [@kelvin9877](https://linkedin.com/in/kelvin9877)
+* Email: [kelvinliang@yandex.com](mailto:kelvinliang@yandex.com)
+
+**I am available for hire/looking for next dev position.**
 
 ## Show your support
 
